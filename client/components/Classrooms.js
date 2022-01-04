@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getClassrooms } from "../store";
+import ClassroomItem from "./ClassroomItem";
 
 const Classrooms = () => {
   const classrooms = useSelector(state => state.classrooms);
@@ -13,7 +14,7 @@ const Classrooms = () => {
   useEffect(() => {
     dispatch(getClassrooms());
     setLoading(false);
-  })
+  }, [])
 
   if (loading) return <div>Loading...</div>;
 
@@ -21,9 +22,10 @@ const Classrooms = () => {
     <div className="all">
       <h2>Classrooms</h2>
       <Link to="/classrooms/create">Create a New Classroom</Link>
+      <div>Classroom here</div>
       {classrooms.length < 1
         ? <p>No Classrooms</p>
-        : classrooms.map(classroom => <Classroom classroom={classroom} key={classroom.id} />)}
+        : classrooms.map(classroom => <ClassroomItem classroom={classroom} key={classroom.id} />)}
     </div>
   )
 }
