@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {authenticate} from '../store';
+import { authenticate } from '../store';
 
 const AuthForm = ({ formName }) => {
   //the only thing we need from the store is the error so we get that using useSelector
-  const { error } = useSelector
-  (state => {
-    return {
-      error: state.auth.error
-    }
-  });
+  const { error } = useSelector(state => ({ error: state.auth.error }));
 
   //getting the actions from the store
   const dispatch = useDispatch();

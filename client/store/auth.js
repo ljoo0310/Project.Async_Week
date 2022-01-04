@@ -11,7 +11,10 @@ const SET_AUTH = 'SET_AUTH'
 /**
  * ACTION CREATORS
  */
-const setAuth = auth => ({type: SET_AUTH, auth})
+const setAuth = auth => ({
+  type: SET_AUTH,
+  auth
+})
 
 /**
  * THUNK CREATORS

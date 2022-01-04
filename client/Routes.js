@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
-import AuthForm from './components/AuthForm';
-import Home from './components/Home';
-import { me } from './store';
 import { useSelector, useDispatch } from 'react-redux';
+import { Route, Switch, Redirect } from 'react-router-dom';
+
+import AuthForm from "./components/AuthForm";
+import Classrooms from "./components/Classrooms";
+import Home from "./components/Home";
+import { me } from "./store";
 
 const Routes = () => {
   const { isLoggedIn } = useSelector(state => {
@@ -20,19 +22,24 @@ const Routes = () => {
 
   return (
     <div>
-        {isLoggedIn ? (
-          <Switch>
-            <Route path="/home" component={Home} />
-            <Redirect to="/home" />
-          </Switch>
-        ) : (
-          <Switch>
-            <Redirect exact from='/' to='/login'/>
-            <Route path="/login"><AuthForm formName="login" /> </Route>
-            <Route path="/signup"><AuthForm formName="signup" /></Route>
-          </Switch>
-        )}
-      </div>
+      {!isLoggedIn ? ( // not logged in
+        <Switch>
+          <Redirect exact from='/' to='/login'/>
+          <Route path="/login">
+            <AuthForm formName="login" />
+          </Route>
+          <Route path="/signup">
+            <AuthForm formName="signup" />
+          </Route>
+        </Switch>
+      ) : ( // logged in
+        <Switch>
+          <Route path="/home" component={Home} />
+          <Route path="/classrooms" component={Classrooms} />
+          <Redirect to="/home" />
+        </Switch>
+      )}
+    </div>
   )
 }
 
