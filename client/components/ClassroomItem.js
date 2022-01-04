@@ -13,7 +13,6 @@ const ClassroomItem = ({ classroom }) => {
       </h2>
       <img src={classroom.imageUrl} />
       {/* <button type="button" onClick={() => dispatch(deleteCampus(classroom.id))}>Delete</button> */}
-      <button type="button" onClick={() => {}}>Delete</button>
     </div>
   )
 };

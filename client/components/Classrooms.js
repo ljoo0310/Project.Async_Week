@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { getClassrooms } from "../store";
 import ClassroomItem from "./ClassroomItem";
 
@@ -21,8 +21,7 @@ const Classrooms = () => {
   return (
     <div className="all">
       <h2>Classrooms</h2>
-      <Link to="/classrooms/create">Create a New Classroom</Link>
-      <div>Classroom here</div>
+      {/* <Link to="/classrooms/create">Create a New Classroom</Link> */}
       {classrooms.length < 1
         ? <p>No Classrooms</p>
         : classrooms.map(classroom => <ClassroomItem classroom={classroom} key={classroom.id} />)}

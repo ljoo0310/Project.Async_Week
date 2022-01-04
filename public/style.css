@@ -19,3 +19,10 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+
+/* CLASSES */
+.item img {
+  width: 500px;
+  height: auto;
+}
