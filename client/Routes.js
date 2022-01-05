@@ -25,13 +25,11 @@ const Routes = () => {
     <div>
       {!isLoggedIn ? ( // not logged in
         <Switch>
-          <Redirect exact from='/' to='/login'/>
-          <Route path="/login">
-            <AuthForm formName="login" />
-          </Route>
-          <Route path="/signup">
-            <AuthForm formName="signup" />
-          </Route>
+          <Route path="/home" component={Home} />
+          <Route exact path="/classrooms" component={Classrooms} />
+          <Route path="/login"><AuthForm formName="login" /></Route>
+          <Route path="/signup"><AuthForm formName="signup" /></Route>
+          <Redirect to="/login" />
         </Switch>
       ) : ( // logged in
         <Switch>
