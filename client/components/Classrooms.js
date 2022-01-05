@@ -21,7 +21,6 @@ const Classrooms = () => {
   return (
     <div className="all">
       <h2>Classrooms</h2>
-      {/* <Link to="/classrooms/create">Create a New Classroom</Link> */}
       {classrooms.length < 1
         ? <p>No Classrooms</p>
         : classrooms.map(classroom => <ClassroomItem classroom={classroom} key={classroom.id} />)}

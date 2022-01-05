@@ -4,17 +4,15 @@ import { useSelector, useDispatch } from 'react-redux';
 import { logout } from '../store';
 
 const Navbar = () => {
-  const { isLoggedIn } = useSelector(state => {
-    return {
-      isLoggedIn: !!state.auth.id
-    }
-  });
+  const { isLoggedIn } = useSelector(state => ({
+    isLoggedIn: !!state.auth.id
+  }));
 
   const dispatch = useDispatch();
 
   return (
     <div>
-      <h1>FS-App-Template</h1>
+      <h1>Hoom👋, Zoom with Hand Gestures!</h1>
       <nav>
         {!isLoggedIn ? (
           <div>
