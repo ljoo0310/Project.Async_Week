@@ -143,18 +143,16 @@ const Video = () => {
               position: "absolute",
               marginLeft: "auto",
               marginRight: "auto",
-              left: 400,
-              bottom: 500,
+              left: 550,
+              // bottom: 500,
               right: 0,
-              textAlign: "center",
-              height: 100,
+              // textAlign: "center",
+              // height: 100,
             }}
           />
         ) : (
           ""
         )}
-
-        {/* NEW STUFF */}
       </header>
     </div>
   );
