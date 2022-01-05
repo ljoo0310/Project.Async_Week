@@ -1,35 +1,42 @@
-'use strict'
-
 const {db, models: { Classroom, User } } = require('../server/db')
 
-/**
- * seed - this function clears the database, updates tables to
- *      match the models, and populates the database.
- */
 async function seed() {
   await db.sync({ force: true }) // clears db and matches models to tables
   console.log('db synced!')
 
+  // Create classrooms
   const classrooms = await Promise.all([
     Classroom.create({
       name: 'Fullstack Academy',
       imageUrl: 'https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/39/original/fullstack-academy-logo-square-lg.jpg',
-      address: '5 Hanover Square 11th floor, New York, NY 10004',
-      description: 'Fullstack Academy is an immersive software engineering coding bootcamp located in New York City. Students of the full-time flagship course learn full stack JavaScript over the course of a 13-week, on-campus program.'
     }),
     Classroom.create({
       name: 'Grace Hopper Academy',
       imageUrl: 'https://coursereport-s3-production.global.ssl.fastly.net/uploads/school/logo/261/original/161012-gh-facebook-profile-2x.jpg',
-      address: '5 Hanover Square floor 25, New York, NY 10004',
-      description: "Grace Hopper Academy is a for-profit immersive programming school in New York City named in Grace Hopper's honor. It opened in January 2016 with the goal of increasing the proportion of women in software engineering careers."
     })
   ])
 
-  // Creating Users
+  // Create users
   const users = await Promise.all([
-    User.create({ username: 'cody', password: '123' }),
-    User.create({ username: 'murphy', password: '123' }),
+    User.create({
+      username: 'luke',
+      password: '123',
+    }),
+    User.create({
+      username: 'yehoon',
+      password: '123',
+    }),
+    User.create({
+      username: 'visitor',
+      password: '123',
+    })
   ])
+
+  // Associate classrooms and users
+  const [ fullstack, graceHopper ] = classrooms
+  const [ luke, yehoon, visitor ] = users
+  await fullstack.addUser(luke)
+  await graceHopper.addUser(yehoon)
 
   console.log(`seeded ${classrooms.length} classrooms`)
   console.log(`seeded ${users.length} users`)

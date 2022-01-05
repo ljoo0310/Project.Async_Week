@@ -13,16 +13,6 @@ const Classroom = db.define('classroom', {
     type: Sequelize.STRING,
     defaultValue: 'https://www.insidehighered.com/sites/default/server_files/media/GettyImages-1312120454.jpg',
   },
-  address: {
-    type: Sequelize.STRING,
-    allowNull: false,
-    validate: {
-      notEmpty: true
-    }
-  },
-  description: {
-    type: Sequelize.TEXT
-  }
 })
 
 module.exports = Classroom
