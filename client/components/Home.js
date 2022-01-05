@@ -7,6 +7,7 @@ const Home = () => {
   return (
     <div>
       <h3>Welcome, {username}</h3>
+      <img alt="welcome" src='assets/home.jpeg' />
     </div>
   )
 }

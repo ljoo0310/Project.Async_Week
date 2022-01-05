@@ -20,6 +20,9 @@ form div {
   display: inline-block;
 }
 
+Webcam {
+  text-align: center;
+}
 
 /* CLASSES */
 .item img {
