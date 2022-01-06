@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { authenticate } from '../store';
+import history from '../history';
 
 const AuthForm = ({ formName }) => {
   //the only thing we need from the store is the error so we get that using useSelector
@@ -17,6 +18,7 @@ const AuthForm = ({ formName }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(authenticate(username, password, formName));
+    history.push('/home')
   }
 
   return (

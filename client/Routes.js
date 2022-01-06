@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import AuthForm from "./components/AuthForm";
@@ -9,13 +9,9 @@ import Home from "./components/Home";
 import { me } from "./store";
 
 const Routes = () => {
-  const { isLoggedIn } = useSelector(state => ({
-      isLoggedIn: !!state.auth.id
-  }))
-
   const dispatch = useDispatch();
 
-  useEffect(() => {
+  useEffect(() => { // checks if user is logged in
     dispatch(me());
   }, [])
 
