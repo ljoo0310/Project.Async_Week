@@ -7,7 +7,7 @@ import Video from "./Video"
 
 
 const Classroom = () => {
-  const classroom = useSelector(state => state.classroom)
+  const { auth, classroom } = useSelector(state => state)
   const { isLoggedIn } = useSelector(state => ({
     isLoggedIn: !!state.auth.id
   }));
@@ -34,10 +34,19 @@ const Classroom = () => {
   if (loading) return <div>Loading...</div>
   if (!classroom) return <h2>Oops! Classroom does not exist!</h2>
 
+  console.log('🧑🏻‍💻 auth', auth);
+  console.log('🧑🏻‍💻 classroom', classroom);
+
   return (
     <div className="single">
-      <h2>Welcome to {classroom.name}!</h2>
-      <Video />
+      {auth.classroomId === classroom.id ? (
+        <div>
+          <h2>Welcome to {classroom.name}!</h2>
+          <Video />
+        </div>
+      ) : (
+        <h2>Sorry, you need to be registered for this classroom first!</h2>
+      )}
     </div>
   )
 }
