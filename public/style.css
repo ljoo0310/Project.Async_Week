@@ -1,9 +1,17 @@
 body {
+  background-color: #adcad6;
+  color: #003f52;
   font-family: sans-serif;
 }
 
 a {
+  color: #335c67;
   text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #41bbd9;
 }
 
 label {
@@ -19,6 +27,8 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+
+/* Navbar */
 
 /* Webcam */
 

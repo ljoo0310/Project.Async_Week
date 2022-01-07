@@ -40,11 +40,11 @@ const AuthForm = ({ formName }) => {
           <div>
             <label htmlFor="classroomId">
               <small>Classroom: </small>
-              <select value={classroomId} onChange={(e) => setClassroomId(e.target.value)} name="classroomId" type="id" >
-                <option value="1">Fullstack Academy</option>
-                <option value="2">Grace Hopper Academy</option>
-              </select>
             </label>
+            <select value={classroomId} onChange={(e) => setClassroomId(e.target.value)} name="classroomId" type="id" >
+              <option value="1">Fullstack Academy</option>
+              <option value="2">Grace Hopper Academy</option>
+            </select>
           </div>
           : null
         }

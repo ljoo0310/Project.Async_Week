@@ -11,7 +11,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   return (
-    <div>
+    <div id="navbar">
       <h1>Hoom👋, Zoom with Hand Gestures!</h1>
       <nav>
         {!isLoggedIn ? (
