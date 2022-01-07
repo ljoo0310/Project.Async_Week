@@ -39,4 +39,4 @@ If the user is new to the app, the user may sign up for a new account as well. U
 
 ## Demo
 
-[Youtube demo video]()
+[Youtube demo video](https://www.youtube.com/watch?v=3Lhb0BC6970&ab_channel=LukeJoo)
