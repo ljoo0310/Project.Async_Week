@@ -51,7 +51,7 @@ const AuthForm = ({ formName }) => {
         <div>
           <button type="submit">{formName === 'login' ? 'Login' : formName === 'signup' ? 'Sign Up' : null}</button>
         </div>
-        {formName === 'login' && error && error.response && <div> {error.response.data} </div>}
+        {error && error.response && <div> {error.response.data} </div>}
       </form>
     </div>
   )
