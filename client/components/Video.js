@@ -19,12 +19,13 @@ const raised_hand = "../assets/raised_hand.png"
 const raised_fist = "../assets/raised_fist.png"
 
 const Video = () => {
+  const [ emoji, setEmoji ] = useState(null);
+
   // Webcam
   const webcamRef = useRef(null);
   const canvasRef = useRef(null);
 
   // Emojis
-  const [emoji, setEmoji] = useState(null);
   const images = {
     thumbs_up: thumbs_up,
     thumbs_down: thumbs_down,
@@ -90,8 +91,6 @@ const Video = () => {
         setEmoji();
       }
 
-      ///////// NEW STUFF ADDED GESTURE HANDLING
-
       // Draw mesh
       const ctx = canvasRef.current.getContext("2d");
       drawHand(hand, ctx);
@@ -103,57 +102,24 @@ const Video = () => {
   },[]);
 
   return (
-    <div className="Video">
-      <header className="Video-header">
-        <Webcam
+    <div id="video-stream">
+      <div id="webcam">
+        <Webcam /* video */
           ref={webcamRef}
-          style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
-            right: 0,
-            textAlign: "center",
-            zindex: 9,
-            width: 640,
-            height: 480,
-          }}
         />
-
-        <canvas
-          ref={canvasRef}
-          style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
-            right: 0,
-            textAlign: "center",
-            zindex: 9,
-            width: 640,
-            height: 480,
-          }}
-        />
-
         {emoji !== null ? (
-          <img
-            alt=""
-            src={images[emoji]}
-            style={{
-              position: "absolute",
-              marginLeft: "auto",
-              marginRight: "auto",
-              left: 550,
-              // bottom: 500,
-              right: 0,
-              // textAlign: "center",
-              // height: 100,
-            }}
-          />
-        ) : (
-          ""
-        )}
-      </header>
+        <img
+          alt=""
+          src={images[emoji]}
+        />
+      ) : (
+        ""
+      )}
+      </div>
+
+      <canvas
+        ref={canvasRef}
+      />
     </div>
   );
 }
