@@ -15,7 +15,6 @@ router.post('/login', async (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
   try {
     const { username, password, classroomId } = req.body;
-    console.log('🧑🏻‍💻 user', req.body);
     const user = await User.create({ username, password });
     const classroom = await Classroom.findByPk(classroomId);
     await classroom.addUser(user);

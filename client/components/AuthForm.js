@@ -19,7 +19,6 @@ const AuthForm = ({ formName }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(authenticate(username, password, classroomId, formName));
-    history.push('/home')
   }
 
   return (
@@ -52,7 +51,7 @@ const AuthForm = ({ formName }) => {
         <div>
           <button type="submit">{formName === 'login' ? 'Login' : formName === 'signup' ? 'Sign Up' : null}</button>
         </div>
-        {error && error.response && <div> {error.response.data} </div>}
+        {formName === 'login' && error && error.response && <div> {error.response.data} </div>}
       </form>
     </div>
   )
