@@ -4,7 +4,7 @@
 
 Welcome to [Hoom👋](https://luke-joo-hoom.herokuapp.com)! This app is aimed to be an alternative for Zoom. In the traditional Zoom classroom setting, users have to locate the reactions tab and click on the raise hand button in order to pose a question. They even have to un-click it to remove their recently raised hand. Furthermore, when instructors pose a question to the entire class, responding yes with a thumbs up or no with a thumbs down faces the same hassle of locating the right reactions with your mouse. Hoom👋 takes care of this easily. A simple hand gesture towards the webcam will display the corresponding hand emoji, just like Zoom does.
 
-You may try out the app here (https://luke-joo-hoom.herokuapp.com/home).
+You can try out the app here (https://luke-joo-hoom.herokuapp.com/home).
 
 ## Hand Gestures
 
@@ -31,4 +31,8 @@ Hoom👋  currently supports the following 4 hand gestures:
 
 ## Setup
 
-A user must login and be registered for a specific classroom in order to enter it. (Currently "username: peter, password: 123" is signed up for Fullstack Academy while "username: mary, password: 123" is signed up for Grace Hopper Academy.) If the user is new to the app, the user may sign up for a new account as well. Unfortunately, the app only supports one webcam video, the current user. Still, please feel free to test out how Hoom👋 recognizes your hand!
+A user must login and be registered for a specific classroom in order to enter it. (Currently "username: peter, password: 123" is signed up for Fullstack Academy while "username: mary, password: 123" is signed up for Grace Hopper Academy.) If the user is new to the app, the user may sign up for a new account as well. Unfortunately, the app currently only supports one webcam video, the current user. Still, please feel free to test out how Hoom👋 recognizes your hand!
+
+## Demo
+
+[Youtube demo video]()
