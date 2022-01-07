@@ -19,24 +19,20 @@ async function seed() {
   // Create users
   const users = await Promise.all([
     User.create({
-      username: 'luke',
+      username: 'peter',
       password: '123',
     }),
     User.create({
-      username: 'yehoon',
-      password: '123',
-    }),
-    User.create({
-      username: 'visitor',
+      username: 'mary',
       password: '123',
     })
   ])
 
   // Associate classrooms and users
   const [ fullstack, graceHopper ] = classrooms
-  const [ luke, yehoon, visitor ] = users
-  await fullstack.addUser(luke)
-  await graceHopper.addUser(yehoon)
+  const [ peter, mary ] = users
+  await fullstack.addUser(peter)
+  await graceHopper.addUser(mary)
 
   console.log(`seeded ${classrooms.length} classrooms`)
   console.log(`seeded ${users.length} users`)
@@ -47,8 +43,8 @@ async function seed() {
       graceHopper: classrooms[1],
     },
     users: {
-      cody: users[0],
-      murphy: users[1],
+      peter: users[0],
+      mary: users[1],
     }
   }
 }

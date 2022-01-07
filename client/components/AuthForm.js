@@ -11,19 +11,20 @@ const AuthForm = ({ formName }) => {
   const dispatch = useDispatch();
 
   //local state for editing
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [ username, setUsername ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ classroomId, setClassroomId ] = useState("1");
 
   //we need a handle submit function to handle the form submission because of what happens when you submit a form, we need to stop the default behavior of the form which is to refresh the page
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(authenticate(username, password, formName));
+    dispatch(authenticate(username, password, classroomId, formName));
     history.push('/home')
   }
 
   return (
     <div>
-      <form onSubmit={handleSubmit} name={formName}>
+      <form onSubmit={ handleSubmit } name={ formName }>
         <div>
           <label htmlFor="username">
             <small>Username</small>
@@ -36,6 +37,18 @@ const AuthForm = ({ formName }) => {
           </label>
           <input onChange={(e) => setPassword(e.target.value)} name="password" type="password" />
         </div>
+        {formName === 'signup' ?
+          <div>
+            <label htmlFor="classroomId">
+              <small>Classroom: </small>
+              <select value={classroomId} onChange={(e) => setClassroomId(e.target.value)} name="classroomId" type="id" >
+                <option value="1">Fullstack Academy</option>
+                <option value="2">Grace Hopper Academy</option>
+              </select>
+            </label>
+          </div>
+          : null
+        }
         <div>
           <button type="submit">{formName === 'login' ? 'Login' : formName === 'signup' ? 'Sign Up' : null}</button>
         </div>

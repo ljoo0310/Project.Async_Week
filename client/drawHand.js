@@ -7,7 +7,7 @@ const fingerJoints = {
   pinky: [0, 17, 18, 19, 20],
 };
 
-// Infinity Gauntlet Style
+// Color points
 const style = {
   0: { color: "white", size: 15 },
   1: { color: "red", size: 6 },
@@ -33,7 +33,7 @@ const style = {
 };
 
 // Drawing function
-export const drawHand = (predictions, ctx) => {
+export default (predictions, ctx) => {
   // Check if we have predictions
   if (predictions.length > 0) {
     // Loop through each prediction

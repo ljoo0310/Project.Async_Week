@@ -20,17 +20,17 @@ form div {
   display: inline-block;
 }
 
-/* Webcam video */
+/* Webcam */
 
-#video-stream {
+#webcam {
   position: relative;
 }
 
-#video-stream video {
+#webcam video {
   position: absolute;
 }
 
-#video-stream canvas {
+#webcam canvas {
   position: absolute;
 }
 

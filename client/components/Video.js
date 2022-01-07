@@ -4,7 +4,7 @@ import * as fp from "fingerpose";
 import * as tf from "@tensorflow/tfjs";
 import React, { useRef, useState, useEffect } from "react";
 import Webcam from "react-webcam";
-import { drawHand } from "../utilities";
+import drawHand from "../drawHand";
 
 //// HAND GESTURES ////
 import thumbsUpGesture from "./gestures/thumbsUpGesture";
@@ -36,7 +36,6 @@ const Video = () => {
   // Handpose model
   const runHandpose = async () => {
     const net = await handpose.load();
-    // console.log("Handpose model loaded.");
     setInterval(() => {
       detect(net);
     }, 10);
@@ -64,10 +63,9 @@ const Video = () => {
 
       // Make Detections
       const hand = await net.estimateHands(video);
-      // console.log(hand);
 
       // Handle gestures
-      if (hand.length > 0) {
+      if (hand.length > 0) { // Hand is detected
         const GE = new fp.GestureEstimator([
           thumbsUpGesture,
           thumbsDownGesture,
@@ -76,22 +74,15 @@ const Video = () => {
         ]);
         const gesture = await GE.estimate(hand[0].landmarks, 4);
         if (gesture.gestures !== undefined && gesture.gestures.length > 0) {
-          console.log(gesture.gestures);
-
-          const confidence = gesture.gestures.map(
-            (prediction) => prediction.score
-          );
-          const maxConfidence = confidence.indexOf(
-            Math.max.apply(null, confidence)
-          );
-          console.log(gesture.gestures[maxConfidence].name);
+          const confidence = gesture.gestures.map(prediction => prediction.score);
+          const maxConfidence = confidence.indexOf(Math.max.apply(null, confidence));
           setEmoji(gesture.gestures[maxConfidence].name);
         }
-      } else {
+      } else { // No hand detected
         setEmoji();
       }
 
-      // Draw mesh
+      // Draw hand
       const ctx = canvasRef.current.getContext("2d");
       drawHand(hand, ctx);
     }
@@ -102,24 +93,12 @@ const Video = () => {
   },[]);
 
   return (
-    <div id="video-stream">
-      <div id="webcam">
-        <Webcam /* video */
-          ref={webcamRef}
-        />
-        {emoji !== null ? (
-        <img
-          alt=""
-          src={images[emoji]}
-        />
-      ) : (
-        ""
-      )}
-      </div>
-
-      <canvas
-        ref={canvasRef}
-      />
+    <div id="webcam">
+      <Webcam ref={webcamRef} />
+      {emoji !== null ?
+      <img alt="" src={images[emoji]} /> :
+      ""}
+      <canvas ref={canvasRef} />
     </div>
   );
 }
