@@ -31,7 +31,11 @@ Hoom👋  currently supports the following 4 hand gestures:
 
 ## Setup
 
-A user must login and be registered for a specific classroom in order to enter it. (Currently "username: peter, password: 123" is signed up for Fullstack Academy while "username: mary, password: 123" is signed up for Grace Hopper Academy.) If the user is new to the app, the user may sign up for a new account as well. Unfortunately, the app currently only supports one webcam video, the current user. Still, please feel free to test out how Hoom👋 recognizes your hand!
+A user must login and be registered for a specific classroom in order to enter it. Currently,
+* "username: peter, password: 123" is signed up for Fullstack Academy while
+* "username: mary, password: 123" is signed up for Grace Hopper Academy.
+
+If the user is new to the app, the user may sign up for a new account as well. Unfortunately, the app currently only supports one webcam video, the current user. Still, please feel free to test out how Hoom👋 recognizes your hand!
 
 ## Demo
 
